@@ -115,9 +115,7 @@ echo -e "${YELLOW}[+] Live subdomains: $(check_and_count "$OUTPUT_DIR/live_subs.
 echo -e "${GREEN}[+] Running katana, gau, and waybackurls...${NC}"
 
 if [[ -s "$OUTPUT_DIR/live_subs.txt" ]]; then
-    katana -list "$OUTPUT_DIR/live_subs.txt" -d 5 -kf -jc -fx \
-    -ef woff,css,png,svg,jpg,woff2,jpeg,gif \
-    -o "$OUTPUT_DIR/katana_urls.txt"
+    katana -list "$OUTPUT_DIR/live_subs.txt" -d 5 -o "$OUTPUT_DIR/katana_urls.txt"
     echo -e "${YELLOW}[+] Katana URLs: $(check_and_count "$OUTPUT_DIR/katana_urls.txt")${NC}"
 else
     touch "$OUTPUT_DIR/katana_urls.txt"
